@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = CONF['box']
   config.vm.box_url = CONF['box_url']
 
-  config.vm.synced_folder "../", CONF['project_path']
+  config.vm.synced_folder "../", CONF['project_path'], :nfs => true
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
