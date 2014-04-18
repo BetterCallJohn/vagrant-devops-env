@@ -13,12 +13,12 @@ Devops environment with Vagrant & Puppet for PHP Projects (Symfony2, Magento, Dr
 ````
 cd /path/to/myproject 
 git submodule add https://github.com/John-iw2/vagrant-devops-env.git vagrant
+git submodule update --init --recursive
 ````
 
 ### Step 2: configure env for your project
 ````
 cp vagrant/vagrantconfig.yaml ./
-
 ````
 You can customise the file vagrantconfig.yaml and add this file in your git for your team.
 
