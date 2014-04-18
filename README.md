@@ -50,7 +50,7 @@ the "vboxsf" file system is not available. Please verify that
 the guest additions are properly installed in the guest and
 can work properly.
 
-Solution :
+Solution:
 
 ````
 vagrant ssh
@@ -60,6 +60,12 @@ exit
 vagrant reload
 vagrant provision
 ````
+===
+
+>Using Symfony2 inside a Vagrant box is considered to be very slow, even when using NFS
+
+Solution: [Speedup symfony2 on vagrant boxes](http://www.whitewashing.de/2013/08/19/speedup_symfony2_on_vagrant_boxes.html)
+
 
 ## Work in progress
 * grunt
