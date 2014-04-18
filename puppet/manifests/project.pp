@@ -60,6 +60,8 @@ class php-setup {
 			ensure => present;					
 		"php-pear":
 			ensure => present;
+		"php5-intl":
+			ensure => present;
 	}	
 
 	class { 'composer':
