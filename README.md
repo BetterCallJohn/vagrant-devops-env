@@ -42,6 +42,24 @@ vagrant up
 vagrant provision
 vagrant ssh
 ````
+## known issues
+
+
+>Failed to mount folders in Linux guest. This is usually because  
+the "vboxsf" file system is not available. Please verify that
+the guest additions are properly installed in the guest and
+can work properly.
+
+Solution :
+
+````
+vagrant ssh
+sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions/ /usr/lib/VBoxGuestAdditions
+sudo /etc/init.d/vboxadd setup
+exit
+vagrant reload
+vagrant provision
+````
 
 ## Work in progress
 * grunt
