@@ -3,7 +3,13 @@
 
 require "yaml"
 
-_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "vagrantconfig.yaml"), File::RDONLY).read)
+_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "./vagrantconfig.yaml"), File::RDONLY).read)
+
+begin
+    _config.merge!(YAML.load(File.open(File.join(File.dirname(__FILE__), "../vagrantconfig.yaml"), File::RDONLY).read))
+rescue Errno::ENOENT
+
+end
 
 begin
     _config.merge!(YAML.load(File.open(File.join(File.dirname(__FILE__), "../vagrantconfig_local.yaml"), File::RDONLY).read))
@@ -38,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.facter = {
       "project_path" => CONF['project_path'],
       "project_url" => CONF['project_url'],
-      "project_webroot" => CONF['project_webroot']
+      "project_webroot" => CONF['project_webroot'],
       "project_template" => CONF['project_template']
     }
   end
