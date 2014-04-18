@@ -134,7 +134,7 @@ class project-setup {
 
 	file { "/etc/nginx/sites-available/$project_url":
         ensure => file,
-        content => template('/vagrant/puppet/template/nginx/$project_template'),
+        content => template("/vagrant/puppet/template/nginx/$project_template"),
     }
 
     file { "/etc/nginx/sites-enabled/$project_url":
