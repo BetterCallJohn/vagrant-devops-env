@@ -24,8 +24,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  config.vm.box = "Debian_7.3_32"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-73-i386-virtualbox-puppet.box"
+  config.vm.box = CONF['box']
+  config.vm.box_url = CONF['box_url']
 
   config.vm.synced_folder "../", CONF['project_path']
 
