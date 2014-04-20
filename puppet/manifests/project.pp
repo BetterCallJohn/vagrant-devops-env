@@ -151,6 +151,32 @@ class { 'apt':
     always_apt_update    => true
 }
 
+
+class nodejs-setup {
+	
+	apt::source { 'puppetlabs':
+	  	location   => 'http://ftp.us.debian.org/debian',
+	  	release         => "wheezy-backports",
+	  	repos      => 'main',
+	}
+
+	package { 'nodejs-legacy':
+        ensure => "installed",
+        require => Exec['apt-get update'],
+    }
+
+    exec { 'install npm':
+        command => 'curl --insecure https://www.npmjs.org/install.sh | sudo clean=no sh',
+        logoutput => "on_failure",
+    }
+
+    exec { 'install grunt + bower':,
+    	command => '/usr/bin/npm install -g grunt-cli bower',
+    	require => Exec['install npm'],
+	}
+
+}
+
 Exec["apt-get update"] -> Package <| |>
 
 include system-update
@@ -159,4 +185,5 @@ include nginx-setup
 include php-setup
 include mysql-setup
 include project-setup
-include phpqatools
+#include phpqatools
+include nodejs-setup

@@ -66,9 +66,17 @@ vagrant provision
 
 Solution: [Speedup symfony2 on vagrant boxes](http://www.whitewashing.de/2013/08/19/speedup_symfony2_on_vagrant_boxes.html)
 
+## Installed components
+* nginx
+* mysql
+* phpmyadmin
+* php5
+* composer
+* nodejs & npm
+* grunt
+* bower
 
 ## Work in progress
-* grunt
 * elastic search
 * rabbitMQ
 * mongo
