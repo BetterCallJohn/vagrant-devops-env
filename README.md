@@ -24,8 +24,9 @@ You can customise the file vagrantconfig.yaml and add this file in your git for 
 
 ````
 box: 'Debian_7.3_32'
-box_url: 'http://puppet-vagrant-boxes.puppetlabs.com/debian-73-i386-virtualbox-puppet.box'
-box_ip: '192.168.20.20'
+box_memory: 1024
+box_cores: 2
+box_sync: nfs  #nfs|smb
 project_name: 'projectname'
 project_path: '/var/www/projectname'
 project_webroot: '/var/www/projectname/web'

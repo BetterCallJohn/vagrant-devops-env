@@ -1,4 +1,7 @@
 box_ip: '192.168.20.20'
+box_memory: 1024
+box_cores: 2
+box_sync: nfs
 project_name: 'projectname'
 project_path: '/var/www/projectname'
 project_webroot: '/var/www/projectname/web'

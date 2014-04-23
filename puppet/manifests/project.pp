@@ -171,9 +171,13 @@ class nodejs-setup {
     }
 
     exec { 'install grunt + bower':,
-    	command => '/usr/bin/npm install -g grunt-cli bower',
+    	command => '/usr/bin/npm install -g grunt grunt-cli bower',
     	require => Exec['install npm'],
 	}
+
+	package {
+		"optipng": ensure => present;
+    }
 
 }
 

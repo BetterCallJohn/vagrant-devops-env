@@ -27,10 +27,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "Debian_7.3_32"
   config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-73-i386-virtualbox-puppet.box"
 
-  config.vm.synced_folder "../", CONF['project_path'], :nfs => true
+  config.vm.synced_folder "../", CONF['project_path'], type: CONF['box_sync']
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", CONF['box_memory'], "--cpus", 2]
   end
 
   config.vm.network "private_network", ip: CONF['box_ip']
